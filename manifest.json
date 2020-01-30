@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "BiChrome Extension Tool",
+  "description": "This extension allows add extra field inside in specific website",
+  "version": "1.0",
+  "icons": {
+    "128" : "icon-128.png",
+    "48" : "icon-48.png",
+    "16" : "icon-16.png"
+  },
+  "browser_action": {
+    "default_icon": "icon-48.png",
+    "default_popup": "popup.html",
+    "default_title": "Check mayday jira connection"
+  },
+  "content_scripts":[
+    {
+      "matches": ["https://*.google.com/*"],
+      "js": ["js/jquery-3.2.1.slim.min.js", "js/extrafield.js"],
+      "css": ["css/bootstrap.min.css"]
+    }
+  ],
+  "background": {
+    "scripts": ["js/event.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "notifications",
+    "contextMenus",
+    "tts"
+  ]
+}
